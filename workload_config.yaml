@@ -1,0 +1,23 @@
+name: Workload 1
+entity:
+  name: Product page API
+  host: productpage
+  port: 9080
+
+# Defines data to be sent from the test framework.
+input:
+  path: /
+  params:
+    - key: value
+    - key: value
+  body: data
+  contentType: application/json
+
+# Defines expected data.
+output:
+  http:
+    contentType: application/json
+    status: 200
+  tcp:
+    latency:
+      threshold: 50 # ms

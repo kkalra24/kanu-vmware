@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vmware-parallel
+  labels:
+      app: vmwareapp-parallel
+spec:
+  # 5 pods simlutaneously
+  parallelism: 5
+  completions: 10
+  template:
+    metadata:
+      name: vmwareapp-parallel-pod
+      labels:
+        app: vmwareapp-parallel
+    spec:
+      containers:
+      - name: vmwareapp-parallel-container
+        image: vmwareapp:latest
+        imagePullPolicy: Never
+      restartPolicy: Never  
