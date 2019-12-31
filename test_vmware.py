@@ -33,9 +33,6 @@ class TestVmWareClass:
         
         url =  "http://" + host + ":" + str(port) + path
         print("URL" , url)
-
-        #overload with google for the time being
-        #url = "http://www.google.com:80/"
         
         contentType = workload_config.get("input").get("contentType")
         headers = {'content-type': contentType}
@@ -64,14 +61,3 @@ class TestVmWareClass:
         expectedRunTime = int(workload_config.get("output").get("tcp").get("latency").get("threshold"))
         print("Run Time (expecetd,actual)", expectedRunTime, actualRuntime)
         assert actualRuntime <= expectedRunTime
-
-        #assert 0
-
-        
-    #def test_one(self):
-     #   x = "this"
-      #  assert "h" in x
-
-    #def test_two(self):
-     #   x = "hello"
-      #  assert hasattr(x, "check")
