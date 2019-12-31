@@ -45,16 +45,19 @@ class TestVmWareClass:
         #response = requests.get(url, params=payload, headers=headers)
         response = requests.get(url, headers=headers)
 
+        #compare actual and expected response code
         actualResponseCode = response.status_code
         expectedResponseCode = workload_config.get("output").get("http").get("status")
         print("Response Status Code (expected,actual)", expectedResponseCode, actualResponseCode)
         assert actualResponseCode == expectedResponseCode
 
+        #compare actual and expected content type
         actualContentType = response.headers.get("content-type")
         expectedContentType = workload_config.get("output").get("http").get("contentType")
         print("Response content type(expected,actual)", expectedContentType, actualContentType)
         assert actualContentType == expectedContentType
 
+        #compare actual and expected run time
         actualRuntime = 0
         if response.headers.get("x-runtime") != None :
             actualRuntime = int(response.headers.get("x-runtime"))
