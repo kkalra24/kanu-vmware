@@ -16,4 +16,4 @@ kubectl get jobs
 kubectl get pods
 
 5. Check the logs
-kubectl get logs
+kubectl logs <pod name>
