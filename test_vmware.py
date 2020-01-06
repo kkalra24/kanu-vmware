@@ -10,6 +10,7 @@ class TestVmWareClass:
         self.mylogger = logging.getLogger()
         
 
+    # This fixture reads the workload_config.yaml file and resturn the contents in dictionary format. This is invoked once per module
     @pytest.fixture(scope="module")
     def workload_config(self):
 
@@ -22,6 +23,7 @@ class TestVmWareClass:
         yield data
         f.close()
     
+    #This fixture makes http request and gets response given the dictionary content from workload_config fixture. This is invoked once per module.
     @pytest.fixture(scope="module")    
     def make_http_request(self, workload_config):
     
@@ -68,9 +70,8 @@ class TestVmWareClass:
       finally:
         return response
         
-
+    #This test function tests the workflow results are as expected
     def test_workload(self, workload_config, make_http_request):
-    
     
         response = make_http_request
         
