@@ -9,4 +9,4 @@ spec:
   - name: vmwareapp-container
     image: vmwareapp:latest
     imagePullPolicy: Never
-    #command: ['pytest', '-c', 'echo Hello Kubernetes! && sleep 3600']
+  restartPolicy: Never

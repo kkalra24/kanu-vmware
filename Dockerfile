@@ -7,4 +7,4 @@ RUN pip install requests==2.22.0
 
 WORKDIR .
 COPY . .
-CMD [ "pytest", "./test_vmware.py" ]
+CMD [ "pytest", "-vvrA", "--junitxml=results/vmwarexmlresults", "./test_vmware.py" ]
